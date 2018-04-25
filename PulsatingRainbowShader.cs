@@ -1,6 +1,6 @@
 ﻿using Terraria;
 using Terraria.DataStructures;
-using ShaderLib.Shaders;
+using ShaderLib;
 using SecretDyes.Dyes;
 
 namespace SecretDyes

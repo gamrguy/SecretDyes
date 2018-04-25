@@ -1,17 +1,11 @@
-﻿using System;
-using Terraria;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace SecretDyes.Dyes
 {
 	public class SilverTrimDye : ModItem
 	{
-		public override string Texture {
-			get {
-				return "Terraria/Item_" + ItemID.SilverDye;
-			}
-		}
+		public override string Texture => "Terraria/Item_" + ItemID.SilverDye;
 
 		public override void SetStaticDefaults()
 		{

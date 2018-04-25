@@ -1,17 +1,11 @@
-﻿using System;
-using Terraria;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace SecretDyes.Dyes
 {
 	public class DevDye : ModItem
 	{
-		public override string Texture {
-			get {
-				return "Terraria/Item_" + ItemID.ReflectiveGoldDye;
-			}
-		}
+		public override string Texture => "Terraria/Item_" + ItemID.ReflectiveGoldDye;
 
 		public override void SetStaticDefaults()
 		{

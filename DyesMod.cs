@@ -1,13 +1,9 @@
-﻿using System;
-using System.IO;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using ShaderLib;
-using ShaderLib.Shaders;
 using SecretDyes.Dyes;
 
 namespace SecretDyes
@@ -18,17 +14,18 @@ namespace SecretDyes
         {
 			ShaderLoader.RegisterMod(this);
 
-			GameShaders.Armor.BindShader(ItemType<DevDye>(), new ArmorShaderData(ShaderLibMod.shaderRef, "ArmorDev"));
-			GameShaders.Armor.BindShader(ItemType<SilverTrimDye>(), new ArmorShaderData(ShaderLibMod.shaderRef, "ArmorSilverTrim"));
-			GameShaders.Armor.BindShader(ItemType<PlaidDye>(), new ArmorShaderData(ShaderLibMod.shaderRef, "ArmorPlaid"));
+			if(Main.netMode != NetmodeID.Server) {
+				ShaderLoader.AddModArmorShaderData(new NormalShader("SilverTrimShader", "ArmorSilverTrim", Color.White), this, ItemType<SilverTrimDye>());
+				ShaderLoader.AddModArmorShaderData(new NormalShader("PlaidShader", "ArmorPlaid", Color.White), this, ItemType<PlaidDye>());
 
-			GameShaders.Armor.BindShader(ItemType<ArmorFFDye>(), new ArmorShaderData(ShaderLibMod.shaderRef, "ArmorForceField").UseColor(0f, 0.9f, 1.0f));
-			GameShaders.Armor.BindShader(ItemType<ArmorFFDyeRed>(), new ArmorShaderData(ShaderLibMod.shaderRef, "ArmorForceField").UseColor(1.0f, 0f, 0f));
-			GameShaders.Armor.BindShader(ItemType<ArmorFFDyeGreen>(), new ArmorShaderData(ShaderLibMod.shaderRef, "ArmorForceField").UseColor(0f, 1.0f, 0f));
-			GameShaders.Armor.BindShader(ItemType<ArmorFFDyeBlue>(), new ArmorShaderData(ShaderLibMod.shaderRef, "ArmorForceField").UseColor(0f, 0f, 1.0f));
-			GameShaders.Armor.BindShader(ItemType<ArmorFFDyeWhite>(), new ArmorShaderData(ShaderLibMod.shaderRef, "ArmorForceField").UseColor(1.0f, 1.0f, 1.0f));
-			GameShaders.Armor.BindShader(ItemType<ArmorFFDyePink>(), new ArmorShaderData(ShaderLibMod.shaderRef, "ArmorForceField").UseColor(1.0f, 0.1f, 0.5f));
-			GameShaders.Armor.BindShader(ItemType<ArmorFFDyePurple>(), new ArmorShaderData(ShaderLibMod.shaderRef, "ArmorForceField").UseColor(0.5f, 0f, 1.0f));
+				ShaderLoader.AddModArmorShaderData(new NormalShader("ForceFieldShader", "ArmorForceField", new Color(0f, 0.9f, 1.0f)), this, ItemType<ArmorFFDye>());
+				ShaderLoader.AddModArmorShaderData(new NormalShader("ForceFieldShaderRed", "ArmorForceField", new Color(1.0f, 0f, 0f)), this, ItemType<ArmorFFDyeRed>());
+				ShaderLoader.AddModArmorShaderData(new NormalShader("ForceFieldShaderGreen", "ArmorForceField", new Color(0f, 1.0f, 0f)), this, ItemType<ArmorFFDyeGreen>());
+				ShaderLoader.AddModArmorShaderData(new NormalShader("ForceFieldShaderBlue", "ArmorForceField", new Color(0f, 0f, 1.0f)), this, ItemType<ArmorFFDyeBlue>());
+				ShaderLoader.AddModArmorShaderData(new NormalShader("ForceFieldShaderWhite", "ArmorForceField", new Color(1.0f, 1.0f, 1.0f)), this, ItemType<ArmorFFDyeWhite>());
+				ShaderLoader.AddModArmorShaderData(new NormalShader("ForceFieldShaderPink", "ArmorForceField", new Color(1.0f, 0.1f, 0.5f)), this, ItemType<ArmorFFDyePink>());
+				ShaderLoader.AddModArmorShaderData(new NormalShader("ForceFieldShaderPurple", "ArmorForceField", new Color(0.5f, 0f, 1.0f)), this, ItemType<ArmorFFDyePurple>());
+			}
 		}
 
 		public override void AddRecipeGroups()
