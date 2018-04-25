@@ -1,25 +1,14 @@
 REQUIRES SHADERLIB TO FUNCTION!
 
-
-
 A small mod to add a few special dyes
-
 to the game using hidden shader effects.
 
-
-
 The dyes are available in a variety
-
 of colors for those that use it (one :P).
 
-
-
 Obtain the dyes at the Dye Vat with
-
 specific recipes involving Strange Plants.
 
-
-
 Latest Update (2.0):
-
 - Updated to latest ShaderLib version.
+- Dev dye now ignores player direction.

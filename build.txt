@@ -1,9 +1,10 @@
 modReferences = ShaderLib
 author = thegamemaster1234
-version = 1.1
+version = 2.0
 displayName = Secret Dyes
 homepage = http://forums.terraria.org/index.php?threads/tgm1234s-mods.48725/
 hideCode = false
-hideResources = falseincludeSource = true
+hideResources = false
+includeSource = true
 includePDB = true
 languageVersion = 6
